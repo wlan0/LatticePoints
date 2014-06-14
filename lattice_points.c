@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-/* A program to compute the lattice points of a circle centered at (0,0)
+/* A program to compute the lattice points of a circle centered at any INTEGERS (m,n)
  */
 
 int main() {
@@ -10,6 +10,11 @@ int main() {
     int r;
     printf("Enter the radius of the circle ");
     scanf("%d", &r);
+
+    int m, n;
+
+    printf("Enter the centre of the cirle");
+    scanf("%d %d", &m, &n);
 
     int out[1000][2];
     int out_index = 0;
@@ -28,15 +33,15 @@ int main() {
 
     int count;
     for(count = 0; count < out_index; count++) {
-        printf("x = %d, y = %d \n", out[count][0], out[count][1]);
+        printf("x = %d, y = %d \n", out[count][0] + m, out[count][1] + n);
         if(out[count][0] != 0) {
-            printf("x = %d, y = %d \n", -1* out[count][0], out[count][1]);
+            printf("x = %d, y = %d \n", -1* out[count][0] + m, out[count][1] + n);
         }
         if(out[count][1] != 0) {
-            printf("x = %d, y = %d \n", out[count][0], -1 * out[count][1]);
+            printf("x = %d, y = %d \n", out[count][0] + m, -1 * out[count][1] + n);
         }
         if(out[count][0] != 0 && out[count][1] != 0) {
-            printf("x = %d, y = %d \n", -1 * out[count][0], -1 * out[count][1]);
+            printf("x = %d, y = %d \n", -1 * out[count][0] + m, -1 * out[count][1] + n);
         }
     }
     return 0;
